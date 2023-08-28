@@ -9,12 +9,12 @@
  */
 
 {
-    "envs/my-react-native-env": {
+    "retomic-rn-env": {
         "scope": "",
         "version": "",
         "defaultScope": "redikru.components",
         "mainFile": "index.ts",
-        "rootDir": "components/envs/my-react-native-env",
+        "rootDir": "components/retomic-rn-env",
         "config": {
             "teambit.dependencies/dependency-resolver": {
                 "policy": {
