@@ -14,6 +14,7 @@ import { PrettierFormatter, PrettierConfigWriter } from "@teambit/defender.prett
 import { Tester } from "@teambit/tester";
 import { Preview } from "@teambit/preview";
 import { ConfigWriterList } from "@teambit/workspace-config-files";
+import { BabelTask } from '@teambit/compilation.babel-compiler';
 
 import hostDependencies from "./preview/host-dependencies";
 import { webpackTransformer } from "./config/webpack.config";
@@ -23,6 +24,7 @@ export class RetomicRnEnv extends ReactNativeEnv {
     name = 'react-native-env-extension';
 
     protected tsconfigPath = require.resolve('./config/tsconfig.json');
+    protected babelConfigPath = require.resolve('./config/babel.config.js')
 
     protected tsTypesPath = './types';
 
@@ -124,6 +126,9 @@ export class RetomicRnEnv extends ReactNativeEnv {
                 tsconfig: this.tsconfigPath,
                 types: resolveTypes(__dirname, [this.tsTypesPath]),
             }),
+            // BabelTask.from({
+            //     babelConfig: this.babelConfigPath
+            // }),
             EslintTask.from({
                 tsconfig: this.tsconfigPath,
                 configPath: this.eslintConfigPath,

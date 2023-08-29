@@ -9,37 +9,18 @@
  */
 
 {
+    "atoms/slider": {
+        "scope": "",
+        "version": "0.0.4",
+        "mainFile": "index.ts",
+        "rootDir": "components/atoms/slider"
+    },
     "retomic-rn-env": {
         "scope": "",
-        "version": "",
+        "version": "0.0.5",
         "defaultScope": "redikru.components",
         "mainFile": "index.ts",
-        "rootDir": "components/retomic-rn-env",
-        "config": {
-            "teambit.dependencies/dependency-resolver": {
-                "policy": {
-                    "devDependencies": {
-                        "@types/react": "^18.0.0",
-                        "@types/react-dom": "^18.0.0"
-                    }
-                }
-            },
-            "teambit.envs/envs": {
-                "env": "teambit.envs/env"
-            },
-            "teambit.compositions/compositions": {},
-            "teambit.docs/docs": {},
-            "teambit.preview/preview": {},
-            "teambit.component/dev-files": {},
-            "teambit.pipelines/builder": {},
-            "teambit.component/forking": {
-                "forkedFrom": {
-                    "scope": "teambit.react",
-                    "name": "react-native-env-extension",
-                    "version": "1.0.6"
-                }
-            }
-        }
+        "rootDir": "components/retomic-rn-env"
     },
     "$schema-version": "16.0.0"
 }

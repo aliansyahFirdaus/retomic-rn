@@ -1,21 +1,42 @@
-import type { WebpackConfigMutator, WebpackConfigTransformContext } from "@teambit/webpack";
-import { reactNativeBaseWebpackTransformer } from "@teambit/react.react-native-env";
+import type {
+  WebpackConfigMutator,
+  WebpackConfigTransformContext,
+} from '@teambit/webpack';
+import { reactNativeBaseWebpackTransformer } from '@teambit/react.react-native-env';
+import webpack from 'webpack';
+import { shouldExclude } from 'tamagui-loader';
 
-/**
- * modifies the webpack config for the components preview bundle.
- * @see https://bit.dev/reference/webpack/webpack-config
- */
-export const webpackTransformer = (configMutator: WebpackConfigMutator, _context: WebpackConfigTransformContext): WebpackConfigMutator => {
-    // apply the base react-native transformer - remove this if you want to totally customise your webpack configuratoin
-    // but make sure you're certain your configuration covers everything you need
-    // otherwise it's better to just override the base config by adding whichever config transformations you need after this base configuration
-    reactNativeBaseWebpackTransformer(configMutator, _context);
-    return configMutator;
+export const webpackTransformer = (
+  configMutator: WebpackConfigMutator,
+  _context: WebpackConfigTransformContext
+): WebpackConfigMutator => {
+  configMutator.raw.plugins.push(
+    new webpack.DefinePlugin({
+      'process.env.TAMAGUI_TARGET': JSON.stringify('web'),
+      'process.env.DEV':
+        process.env.NODE_ENV === 'development' ? 'true' : 'false',
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+    })
+  );
+
+  // configMutator.addModuleRules([
+  //   {
+  //     test: /\.tsx?$/,
+  //     exclude: (path) => shouldExclude(path, __dirname),
+  //     use: [
+  //       'thread-loader',
+  //       {
+  //         loader: 'esbuild-loader',
+  //       },
+  //       {
+  //         loader: 'tamagui-loader',
+  //       },
+  //     ],
+  //   },
+  // ]);
+
+  configMutator.addAliases({ ['react-native$']: 'react-native-web' });
+
+  reactNativeBaseWebpackTransformer(configMutator, _context);
+  return configMutator;
 };
-
-
-
-
-
-
-

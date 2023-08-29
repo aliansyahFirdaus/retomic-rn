@@ -40,6 +40,11 @@
     "packageManager": "teambit.dependencies/pnpm",
     "policy": {
       "dependencies": {
+        "@tamagui/config": "^1.57.3",
+        "@tamagui/shorthands": "^1.57.4",
+        "@tamagui/themes": "^1.57.4",
+        "@tamagui/web": "^1.57.4",
+        "@teambit/compilation.babel-compiler": "^1.0.3",
         "@teambit/defender.eslint-linter": "1.0.7",
         "@teambit/defender.jest-tester": "1.0.2",
         "@teambit/defender.prettier-formatter": "1.0.2",
@@ -49,7 +54,10 @@
         "@teambit/preview.react-preview": "1.0.2",
         "@teambit/react.mounter": "1.0.1",
         "@teambit/react.react-native-env": "1.0.6",
-        "@teambit/typescript.typescript-compiler": "2.0.6"
+        "@teambit/typescript.typescript-compiler": "2.0.6",
+        "react-native-reanimated": "^3.4.2",
+        "tamagui": "^1.57.3",
+        "tamagui-loader": "^1.57.4"
       },
       "peerDependencies": {}
     },
@@ -58,7 +66,7 @@
   },
   "teambit.generator/generator": {
     "envs": [
-      "redikru.components/envs/my-react-native-env"
+      "redikru.components/retomic-rn-env"
     ]
   }
 }
