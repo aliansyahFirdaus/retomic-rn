@@ -10,15 +10,14 @@
 
 {
     "atoms/slider": {
-        "scope": "",
+        "scope": "redikru.components",
         "version": "0.0.4",
         "mainFile": "index.ts",
         "rootDir": "components/atoms/slider"
     },
     "retomic-rn-env": {
-        "scope": "",
+        "scope": "redikru.components",
         "version": "0.0.5",
-        "defaultScope": "redikru.components",
         "mainFile": "index.ts",
         "rootDir": "components/retomic-rn-env"
     },
